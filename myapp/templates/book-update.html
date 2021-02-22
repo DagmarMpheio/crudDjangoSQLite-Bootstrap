@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card-body">
+    <h4>Editar Livro</h4>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <a type="button" class="btn btn-danger" href="{%url 'book-list' %}">Cancelar <span class="glyphicon glyphicon-cancel"></span></a>
+        <button type="submit" class="btn btn-success">Actualizar <span class="glyphicon glyphicon-edit"></span></button>
+    </form>
+</div>
+{% endblock %}

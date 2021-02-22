@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card-body">
+    <h4>Lista de Livros</h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Título</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Ano</th>
+                <th scope="col">Acção</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.description }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.year }}</td>
+                <td><a type="button" class="btn btn-warning" href="/book-update/{{ book.id }}">Editar <span class="glyphicon glyphicon-edit"></span></a>
+                    <a type="button" class="btn btn-danger" href="/book-delete/{{ book.id }}">Excluír <span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a type="button" class="btn btn-success" href="{%url 'book-create' %}">Criar <span class="glyphicon glyphicon-plus"></span></a>
+</div>
+{% endblock %}
